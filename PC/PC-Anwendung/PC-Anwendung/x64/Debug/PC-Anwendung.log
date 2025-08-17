@@ -1,6 +1,3 @@
 ﻿  PC-Anwendung.cpp
-<<<<<<< HEAD
-C:\Users\Emre\git-practise\Programmierung-mit-C-C-_Mikrocontroller-Implementierung-eines-einfachen-Kalkulators\PC\PC-Anwendung\PC-Anwendung.cpp(79,86): warning C4267: "Argument": Konvertierung von "size_t" nach "DWORD", Datenverlust möglich
-=======
->>>>>>> 26abe846a5b1d12ff95592a9656ca6845acdb00f
+  LINK : C:\Users\Emre\git-practise\Programmierung-mit-C-C-_Mikrocontroller-Implementierung-eines-einfachen-Kalkulators\PC\PC-Anwendung\x64\Debug\PC-Anwendung.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
   PC-Anwendung.vcxproj -> C:\Users\Emre\git-practise\Programmierung-mit-C-C-_Mikrocontroller-Implementierung-eines-einfachen-Kalkulators\PC\PC-Anwendung\x64\Debug\PC-Anwendung.exe
