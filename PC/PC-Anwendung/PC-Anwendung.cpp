@@ -2,6 +2,30 @@
 #include <string>
 #include <limits>
 
+// Fragt den Benutzer in einer Schleife nach einer gültigen Gleitkommazahl.
+// Die Schleife wird erst verlassen, wenn die Eingabe korrekt ist.
+// Lagert die Fehlerbehandlung einer fehlerhaften Eingabe in eine eigene Funktion aus, um den main-Code lesbarer zu machen.
+float getFloatFromUser(const std::string& prompt) {
+    float number;
+    while (true) // Schleife für eine robuste Eingabe
+    {
+        std::cout << prompt; // Zeigt den übergebenen Aufforderungstext an
+        std::cin >> number;
+
+        if (std::cin.good()) {
+            // Die Eingabe war erfolgreich, wenn die Eingabe eine Zahl ist.
+            return number; // Die gültige Zahl zurückgeben und die Funktion beenden.
+        }
+        else {
+            // Die Eingabe war fehlerhaft, weil die Eingabe ein Text war.
+            std::cout << "FEHLER: Bitte geben Sie eine gueltige Zahl ein.\n";
+            std::cin.clear(); // Fehlerzustand von cin zurücksetzen
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Den gesamten Puffer leeren.
+            // Die Schleife beginnt von vorne.
+        }
+    }
+}
+
 // Lagert die Anzeige des Menüs in eine eigene Funktion aus, um den main-Code lesbarer zu machen.
 void displayMenu() {
     std::cout << "\n--- Hauptmenue ---\n";
@@ -14,11 +38,11 @@ void displayMenu() {
     std::cout << "Ihre Wahl: ";
 }
 
-// Fordert den Benutzer auf, die Operanden einzugeben und bereitet die Daten für den Versand vor (simuliert).
+// Fordert den Benutzer auf, die Operanden einzugeben und bereitet die Daten für den Versand vor.
 // Lagert die Auswahl der verschieden Operationen in eine eigene Funktion aus, um den main-code lesbarer zu machen.
 void handleOperation(char op) {
     float operand1, operand2; // Variablen für die beiden Gleitkommazahlen, die der Benutzer eingibt.
-    std::string operand1_name, operand2_name; // Variablen für die textuellen Bezeichnungen z.B. 'Summand'.
+    std::string operand1_name, operand2_name; // Variablen für die Text Bezeichnungen z.B. 'Summand'.
 
     // Legt die passenden Namen für die Operanden fest, je nach gewählter Operation.
     switch (op) {
@@ -28,19 +52,15 @@ void handleOperation(char op) {
     case '/': operand1_name = "Dividend"; operand2_name = "Divisor"; break;
     }
 
-    std::cout << "Bitte geben Sie den Wert fuer " << operand1_name << " ein: "; // Fordert den Benutzer zur Eingabe des ersten Wertes auf.
-    // Liest die Benutzereingabe von der Konsole und versucht, sie in die float-Variable 'operand1' zu speichern.
-    std::cin >> operand1;
+    // Eingabe der Zahlen mit der Funktion, welche falsch Eingaben korrekt behandelt.
+    operand1 = getFloatFromUser("Bitte geben Sie den Wert fuer " + operand1_name + " ein: ");
+    operand2 = getFloatFromUser("Bitte geben Sie den Wert fuer " + operand2_name + " ein: ");
 
-    // Fordert den Benutzer zur Eingabe des zweiten Wertes auf.
-    std::cout << "Bitte geben Sie den Wert fuer " << operand2_name << " ein: ";
-    // Liest die Benutzereingabe von der Konsole und versucht, sie in die float-Variable 'operand2' zu speichern.
-    std::cin >> operand2;
 
-    // Baut den finalen String zusammen, der an den Arduino gesendet wird.
+    // Baut den finalen String zusammen, der im korrekten Format an den Arduino gesendet wird.
     std::string expression = std::to_string(operand1) + " " + op + " " + std::to_string(operand2);
 
-    // Simulierte Kommunikation 
+    // Simulierte Kommunikation
     std::cout << "\nAn Arduino gesendet (simuliert): " << expression << std::endl;
     std::string mockResult = "Ergebnis: 25.0 (simuliert)";
 

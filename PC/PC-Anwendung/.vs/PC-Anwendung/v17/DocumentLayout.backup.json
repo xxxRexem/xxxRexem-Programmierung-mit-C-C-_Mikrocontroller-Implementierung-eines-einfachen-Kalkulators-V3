@@ -14,12 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,7 +24,7 @@
               "RelativeDocumentMoniker": "PC-Anwendung.cpp",
               "ToolTip": "C:\\Users\\Emre\\git-practise\\Programmierung-mit-C-C-_Mikrocontroller-Implementierung-eines-einfachen-Kalkulators\\PC\\PC-Anwendung\\PC-Anwendung.cpp",
               "RelativeToolTip": "PC-Anwendung.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-08-17T17:57:07.961Z",
               "EditorCaption": ""
